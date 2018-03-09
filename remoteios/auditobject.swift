@@ -10,4 +10,8 @@ import UIKit
 
 class auditobject: NSObject {
 
-}
+   
+     var lastmodified: String?
+     var updateby: String?
+       var remark: String?
+   }

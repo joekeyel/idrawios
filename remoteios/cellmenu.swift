@@ -10,6 +10,7 @@ import UIKit
 
 class cellmenu: UITableViewCell {
 
+    @IBOutlet weak var menuitem: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

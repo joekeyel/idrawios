@@ -7,7 +7,8 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class markerobject: NSObject {
-
+ var marker: GMSMarker?
 }

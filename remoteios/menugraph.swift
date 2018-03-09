@@ -8,8 +8,9 @@
 
 import UIKit
 
-class menugraph: UITableViewCell {
+class menugraphcell: UITableViewCell {
 
+    @IBOutlet weak var item: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

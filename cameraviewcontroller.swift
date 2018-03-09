@@ -7,29 +7,191 @@
 //
 
 import UIKit
+import Firebase
+import GooglePlaces
+import GoogleMaps
 
-class cameraviewcontroller: UIViewController {
 
+protocol addmarkeraftertagdelegate {
+    func addmarkertomaps(marker:GMSMarker)
+}
+class cameraviewcontroller: UIViewController,UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+
+    @IBOutlet weak var uploadbutton: UIButton!
+    @IBOutlet weak var imagecapture: UIImageView!
+    
+    @IBOutlet weak var imagename: UITextField!
+    @IBOutlet weak var selectelement: UIPickerView!
+    //for pickerview type of element
+    
+     let arrayregion = ["Cabinet","ManHole","DP"]
+    
+    var networkelement = "Cabinet"
+    var marker1 = GMSMarker()
+    
+     var delegate:addmarkeraftertagdelegate? = nil
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        uploadbutton.isHidden = true
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    
+    @IBAction func opencamera(_ sender: Any) {
+        
+        let imagepickercontroller = UIImagePickerController()
+               imagepickercontroller.delegate = self
+        let actionsheet = UIAlertController(title:"Photo Source",message:"Choose a source",preferredStyle:.actionSheet)
+        
+        actionsheet.addAction(UIAlertAction(title:"Camera",style:.default,handler:{(action:UIAlertAction) in
+            
+            imagepickercontroller.sourceType = .camera
+            self.present(imagepickercontroller,animated: true,completion: nil)
+            
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title:"Photo Library",style:.default,handler:{(action:UIAlertAction) in
+            
+            imagepickercontroller.sourceType = .photoLibrary
+            self.present(imagepickercontroller,animated: true,completion: nil)
+            
+        }))
+        
+        actionsheet.addAction(UIAlertAction(title:"Cancel",style:.cancel,handler:nil))
+        
+        self.present(actionsheet,animated: true,completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        
+        imagecapture.autoresizingMask = UIViewAutoresizing(rawValue: UIViewAutoresizing.RawValue(UInt8(UIViewAutoresizing.flexibleBottomMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleHeight.rawValue) | UInt8(UIViewAutoresizing.flexibleRightMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleLeftMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleTopMargin.rawValue) | UInt8(UIViewAutoresizing.flexibleWidth.rawValue)))
+        imagecapture?.contentMode = UIViewContentMode.scaleAspectFit
+        
+        imagecapture.image = resizeToScreenSize(image: image)
+        
+           picker.dismiss(animated: true, completion: nil)
+        uploadbutton.isHidden = false
+        
+       
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+  
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        
+        UIGraphicsBeginImageContext(CGSize(width: newWidth, height: newHeight))
+        
+        
+        image.draw(in: CGRect(x: 0, y: 0,width: newWidth, height: newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
+    func resizeToScreenSize(image: UIImage)->UIImage{
+        
+        let screenSize = self.view.bounds.size
+        
+        
+        return resizeImage(image: image, newWidth: screenSize.width)
+    }
+   
+    @IBAction func uploadimage(_ sender: Any) {
+        
+        // Create a root reference
+        
+        let storage = FIRStorage.storage()
+        let storageRef = storage.reference()
+        
+        let imagename = self.imagename.text
+        
+        if(!(imagename?.isEmpty)!){
+            
+            
+            
+        marker1.title = networkelement+"_"+imagename!
+        
+        var data = NSData()
+        data = UIImageJPEGRepresentation(imagecapture.image!, 0.1)! as NSData
+        let metaData = FIRStorageMetadata()
+        metaData.contentType = "image/jpg"
+            let createdby : String = (FIRAuth.auth()?.currentUser?.email)!
+        // Create a reference to the file you want to upload
+        let riversRef = storageRef.child("remote_camera/"+createdby+"/"+networkelement+"_"+imagename!+".jpg")
+        
+        // Upload the file to the path "images/rivers.jpg"
+        _ = riversRef.put(data as Data, metadata: metaData) { (metadata, error) in
+            guard let metadata = metadata else {
+                // Uh-oh, an error occurred!
+                return
+            }
+            // Metadata contains file metadata such as size, content-type, and download URL.
+            _ = metadata.downloadURL
+            let tmpController :UIViewController! = self.presentingViewController;
+            
+                            self.dismiss(animated: false, completion: {()->Void in
+            
+                                tmpController.dismiss(animated: false, completion: nil);
+                                
+                                 });
+            
+            //save the marker location to firebase storage
+            var ref: FIRDatabaseReference!
+            
+            ref = FIRDatabase.database().reference()
+            ref.child("photomarkeridraw").child((FIRAuth.auth()?.currentUser?.uid)!).child(self.marker1.title!).setValue(["lat": self.marker1.position.latitude,"lng":self.marker1.position.longitude,"createdby":FIRAuth.auth()?.currentUser?.email ?? ""])
+            
+            
+            
+            if(self.delegate != nil){
+                // let tappedImage = tapGestureRecognizer.view as! UIImageView
+                
+                
+                self.delegate?.addmarkertomaps(marker: self.marker1)
+                self.dismiss(animated: true, completion: nil)
+                
+                
+                
+            }
+            
+            }
+        }
+ 
+    }
+    
+    //uipickerview
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return arrayregion.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return arrayregion[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+       // print(group)
+        let ne = arrayregion[row]
+        networkelement = ne
+        print(networkelement)
+        
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }

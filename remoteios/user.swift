@@ -8,6 +8,11 @@
 
 import UIKit
 
-class user: NSObject {
+class userobject: NSObject {
+    
+    var currentuser:String?
+    var lat:String?
+    var lng:String?
+    var uuid:String?
 
 }

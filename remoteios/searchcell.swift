@@ -10,9 +10,15 @@ import UIKit
 
 class searchcell: UITableViewCell {
 
+   
+    @IBOutlet weak var labelmarker: UILabel!
+    
+    @IBOutlet weak var imagemarker: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

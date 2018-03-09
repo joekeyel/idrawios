@@ -10,12 +10,23 @@ import UIKit
 
 class infowindowsmaps: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet weak var titleimage: UILabel!
+    @IBOutlet weak var imageview: UIImageView!
+    @IBOutlet weak var longitude: UILabel!
+    @IBOutlet weak var latitude: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
     }
-    */
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    func loadView() -> infowindowsmaps{
+        let customInfoWindow = Bundle.main.loadNibNamed("infowindowsmaps", owner: self, options: nil)?[0] as! infowindowsmaps
+        return customInfoWindow
+    }
+
 
 }

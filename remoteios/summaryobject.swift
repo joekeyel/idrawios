@@ -9,5 +9,9 @@
 import UIKit
 
 class summaryobject: NSObject {
+    
+    var buildingid: String?
+    var basket: String?
+    var total: String?
 
 }

@@ -10,9 +10,16 @@ import UIKit
 
 class detailscell: UITableViewCell {
 
+    @IBOutlet weak var itemdetails: UILabel!
+   
+     
+    @IBOutlet weak var bgview: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        bgview.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

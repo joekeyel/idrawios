@@ -9,5 +9,6 @@
 import UIKit
 
 class sessionresponse: NSObject {
-
+    var stationib:String?
+   
 }

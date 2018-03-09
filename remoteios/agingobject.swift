@@ -9,5 +9,30 @@
 import UIKit
 
 class agingobject: NSObject {
+    
+    var exchange: String?
+   
+   
+   
+    var aging24hour: String?
+    var aging72hour: String?
+    var aging48hour: String?
+    var totalcurrenttt: String?
 
+   
 }
+
+class capacityobj: NSObject {
+
+      var migratesub: String?
+}
+
+class totalttmigratiion: NSObject {
+    
+    var totalttmigrate: String?
+
+    
+    }
+
+
+

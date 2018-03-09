@@ -10,7 +10,13 @@ import UIKit
 
 class cellmenupopover: UITableViewCell {
 
+    @IBOutlet weak var updateby: UILabel!
+    @IBOutlet weak var lastmodified: UILabel!
+    @IBOutlet weak var menuitem: UILabel!
+     
+    @IBOutlet weak var bgview: UIView!
     override func awakeFromNib() {
+        bgview.layer.cornerRadius = 10
         super.awakeFromNib()
         // Initialization code
     }

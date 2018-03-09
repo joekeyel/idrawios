@@ -8,7 +8,7 @@
 
 import UIKit
 
-class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
+class reasoncodeviewaging: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
     var ttinfo = listttobject()
     var reasoncodelist:[String] = []
@@ -16,18 +16,21 @@ class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     var username = ""
     var statusmdf = ""
     var remark = ""
+    var delayreason = ""
     var activitiyindicator:UIActivityIndicatorView = UIActivityIndicatorView()
 
  
-    @IBOutlet weak var contactnumber: UILabel!
     @IBOutlet weak var customername: UILabel!
+    @IBOutlet weak var servicenumber: UILabel!
+    @IBOutlet weak var latereason: UITextView!
+   
+    @IBOutlet weak var contactnumber: UILabel!
     @IBOutlet weak var bgview: UIView!
     @IBOutlet weak var selectview: UIPickerView!
-    
     @IBOutlet weak var updatebutton: UIButton!
-    
-    @IBOutlet weak var servicenumber: UILabel!
+   
     @IBOutlet weak var selectvalue: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,13 +40,15 @@ class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
         
         
         bgview.layer.cornerRadius = 10
-              selectvalue.layer.cornerRadius = 10
+        selectvalue.layer.cornerRadius = 10
         updatebutton.layer.cornerRadius = 10
+        latereason.layer.cornerRadius = 10
+        
         fetchreasoncode()
         getuser()
 
-        
-        // Do any additional setup after loading the view.
+        //hide keyboard when tapping
+       self.hideKeyboardWhenTappedAround()
     }
     
     func fetchreasoncode(){
@@ -111,20 +116,39 @@ class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     
     func updatereasoncode(){
         
+        if(latereason.text.isEmpty){
+            
+             let alertController = UIAlertController(title: "Delay Reason Code", message: " Pls Insert Delay Reason Code", preferredStyle: UIAlertControllerStyle.alert)
+            
+            let cancelAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel) { (result : UIAlertAction) -> Void in
+                self.activitiyindicator.stopAnimating()
+                
+            }
+          
+            alertController.addAction(cancelAction)
+           
+            self.present(alertController, animated: true, completion: nil)
+            
+        }else{
+        
         let reasoncodeinput = reasoncode
+         delayreason = latereason.text
         let uuid = UIDevice.current.identifierForVendor!.uuidString
         
         
         let parameters = ["uuid" : uuid,
                           "MM_Username" :  username,
+                           "updateby" :  username,
                           "ttno" : ttinfo.ttno!,
+                          "serviceno" : ttinfo.servicenumber!,
                           "servicenumber" : ttinfo.servicenumber!,
                           "No" : ttinfo.no!,
                           "created_date" : ttinfo.createddate!,
                           "select" : statusmdf,
                           "textarea" : remark,
                           "basket" : "mcc",
-                          "reasoncode" : reasoncodeinput].map { "\($0)=\(String(describing: $1 ))" }
+                          "reasoncode" : reasoncodeinput,
+                          "delayreason" : delayreason].map { "\($0)=\(String(describing: $1 ))" }
         
         
         let request = NSMutableURLRequest(url: NSURL(string: "http://58.27.84.166/mcconline/MCC%20Online%20V3/update_status_mobile.php")! as URL)
@@ -169,6 +193,8 @@ class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
             print("responseString = \(String(describing: responseString))")
         }
         task.resume()
+            
+        }
         
     }
     
@@ -244,6 +270,7 @@ class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
     
     
 
+  
     @IBAction func updatereason(_ sender: Any) {
         
         activitiyindicator.center = self.view.center
@@ -251,8 +278,8 @@ class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
         activitiyindicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         view.addSubview(activitiyindicator)
         activitiyindicator.startAnimating()
-
-       
+        
+        
         
         
         
@@ -262,17 +289,15 @@ class reasoncodeview: UIViewController,UIPickerViewDataSource,UIPickerViewDelega
             
         }
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-             self.updatereasoncode()
+            self.updatereasoncode()
         }
         alertController.addAction(cancelAction)
         alertController.addAction(okAction)
         self.present(alertController, animated: true, completion: nil)
-
-      
-    
-
+        
+        
     }
-
+    
     
 
     override func didReceiveMemoryWarning() {

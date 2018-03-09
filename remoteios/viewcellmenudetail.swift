@@ -10,6 +10,8 @@ import UIKit
 
 class viewcellmenudetail: UITableViewCell {
 
+    @IBOutlet weak var itemdetails: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
