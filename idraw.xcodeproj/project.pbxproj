@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3001E9622054FFBD00DC6128 /* popovernewductnest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3001E9612054FFBD00DC6128 /* popovernewductnest.swift */; };
 		3023B9FD1F2F691B00A52650 /* hidekeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023B9FC1F2F691B00A52650 /* hidekeyboard.swift */; };
 		302876DD1F70B7A8008F69A6 /* cameraviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302876DC1F70B7A8008F69A6 /* cameraviewcontroller.swift */; };
 		302886581F1C7D2A00623542 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302886571F1C7D2A00623542 /* images.xcassets */; };
@@ -29,6 +30,7 @@
 		30981638200850C30020976B /* searchlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30981637200850C30020976B /* searchlist.swift */; };
 		3098163A20085E080020976B /* searchcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098163920085E080020976B /* searchcell.swift */; };
 		3098163C2008688E0020976B /* markerobject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098163B2008688E0020976B /* markerobject.swift */; };
+		30A0C28E2053D6D500CA006E /* popoveroccupancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A0C28D2053D6D500CA006E /* popoveroccupancy.swift */; };
 		30A63AF11F1608A100AFDC4C /* basecell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 30A63AF01F1608A100AFDC4C /* basecell.xib */; };
 		30A63AF31F160B2700AFDC4C /* BaseViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30A63AF21F160B2700AFDC4C /* BaseViewCell.swift */; };
 		30AAE89C1F6B68A1002E5FDB /* orientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30AAE89B1F6B68A1002E5FDB /* orientation.swift */; };
@@ -66,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		033FB0084C3DE67FCB8D90C4 /* Pods-idrawTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrawTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-idrawTests/Pods-idrawTests.release.xcconfig"; sourceTree = "<group>"; };
+		3001E9612054FFBD00DC6128 /* popovernewductnest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popovernewductnest.swift; sourceTree = "<group>"; };
 		3023B9FC1F2F691B00A52650 /* hidekeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hidekeyboard.swift; sourceTree = "<group>"; };
 		302876DC1F70B7A8008F69A6 /* cameraviewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = cameraviewcontroller.swift; path = ../cameraviewcontroller.swift; sourceTree = "<group>"; };
 		302886571F1C7D2A00623542 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		30981637200850C30020976B /* searchlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchlist.swift; sourceTree = "<group>"; };
 		3098163920085E080020976B /* searchcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchcell.swift; sourceTree = "<group>"; };
 		3098163B2008688E0020976B /* markerobject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = markerobject.swift; sourceTree = "<group>"; };
+		30A0C28D2053D6D500CA006E /* popoveroccupancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popoveroccupancy.swift; sourceTree = "<group>"; };
 		30A63AF01F1608A100AFDC4C /* basecell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = basecell.xib; sourceTree = "<group>"; };
 		30A63AF21F160B2700AFDC4C /* BaseViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewCell.swift; sourceTree = "<group>"; };
 		30AAE89B1F6B68A1002E5FDB /* orientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orientation.swift; sourceTree = "<group>"; };
@@ -222,6 +226,8 @@
 				307D0030200B8D7300E00C41 /* registercontroller.swift */,
 				304AD8F3204D287500A869E4 /* manholedetails.swift */,
 				30B0C004204E30520004A455 /* manholesummary.swift */,
+				30A0C28D2053D6D500CA006E /* popoveroccupancy.swift */,
+				3001E9612054FFBD00DC6128 /* popovernewductnest.swift */,
 			);
 			path = remoteios;
 			sourceTree = "<group>";
@@ -563,9 +569,11 @@
 			files = (
 				3048E6CC1F1DCEB400DA8296 /* cellmenupopover.swift in Sources */,
 				304AD8F4204D287500A869E4 /* manholedetails.swift in Sources */,
+				3001E9622054FFBD00DC6128 /* popovernewductnest.swift in Sources */,
 				30FDDF321F93060A008AD7B0 /* sessionresponse.swift in Sources */,
 				3098163C2008688E0020976B /* markerobject.swift in Sources */,
 				3062194D1F721CE7002CAE0C /* infowindowsmaps.swift in Sources */,
+				30A0C28E2053D6D500CA006E /* popoveroccupancy.swift in Sources */,
 				30C2F4C2200370E0004CE301 /* markerdetail.swift in Sources */,
 				30556F7F2007587200D048F2 /* streetview.swift in Sources */,
 				302876DD1F70B7A8008F69A6 /* cameraviewcontroller.swift in Sources */,

@@ -132,6 +132,10 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         //Location Manager code to fetch current location
         self.locationManager.delegate = self
         self.locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        
+    
+      
         
         let value = UIInterfaceOrientation.portrait.rawValue
         UIDevice.current.setValue(value, forKey: "orientation")
@@ -244,7 +248,7 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         
         
         //will listen to new event added
-        let referencesketch = FIRDatabase.database().reference().child("sketch")
+        let referencesketch = FIRDatabase.database().reference().child("sketch").child((FIRAuth.auth()?.currentUser?.uid)!)
         
         referencesketch.observeSingleEvent(of: .value, with: { (snapshot) in
             
@@ -252,8 +256,8 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
             var polylinename :String? = nil
              var createdby :String? = nil
             
-            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
-                for rest2 in rest.children.allObjects as! [FIRDataSnapshot] {//user sketch name level
+          
+                for rest2 in snapshot.children.allObjects as! [FIRDataSnapshot] {//user sketch name level
                     
                     let path = GMSMutablePath()
                     polylinename = rest2.key // to get the name of polyline
@@ -304,7 +308,7 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
                     
                 }
                 
-            }
+            
             
             
             //  self.movemarker(lat: latitude, lng: longitude, username: username)
@@ -316,16 +320,16 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         
         
         // initally load photo marker once
-        let referencephotomarkerinitial = FIRDatabase.database().reference().child("photomarkeridraw")
+        let referencephotomarkerinitial = FIRDatabase.database().reference().child("photomarkeridraw").child((FIRAuth.auth()?.currentUser?.uid)!)
         referencephotomarkerinitial.observeSingleEvent(of: .value, with: { (snapshot) in
             
-            for rest in snapshot.children.allObjects as! [FIRDataSnapshot] {
+           
                 var lat : Double = 1.1
                 var lng : Double = 1.1
                 var markername :String = ""
                 var createdby : String = ""
                
-                for rest2 in rest.children.allObjects as! [FIRDataSnapshot] {//photo marker user name level
+                for rest2 in snapshot.children.allObjects as! [FIRDataSnapshot] {//photo marker user name level
                     for rest3 in rest2.children.allObjects as! [FIRDataSnapshot] {
                     
                     
@@ -354,21 +358,22 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
                     marker.position = CLLocationCoordinate2D(latitude: lat, longitude: lng)
                     marker.title = markername
                     marker.userData = createdby
-                    
-                    if markername.range(of:"Cabinet_") != nil   {
-                        marker.icon = UIImage(named:"cabinet")
-                    }
+//
+//                    if markername.range(of:"Cabinet_") != nil   {
+//                        marker.icon = UIImage(named:"cabinet")
+//                    }
                     if markername.range(of:"ManHole_") != nil {
                         marker.icon = UIImage(named:"mainhole")
                         //save marker for man hole only....this is for dime server
                          self.markerDict.append(marker)
+                         marker.map = self.mapView
                     }
-                    if markername.range(of:"DP_") != nil {
-                        marker.icon = UIImage(named:"dppole")
-                    }
+//                    if markername.range(of:"DP_") != nil {
+//                        marker.icon = UIImage(named:"dppole")
+//                    }
                     
                     
-                    marker.map = self.mapView
+                   
                     marker.isDraggable = true
                     
                     //save all marker here
@@ -378,7 +383,7 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
                 }
                
                 
-            }
+            
             
             
             
@@ -404,12 +409,15 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         marker.title = "My Location"
         marker.map = mapView
         
-        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom:16)
+       let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom:16)
         mapView.animate(to: camera)
         
+        
+    
+        // print(manager.location!.horizontalAccuracy)
         //Finally stop updating location otherwise it will come again and again in this delegate
         self.locationManager.stopUpdatingLocation()
-        
+       // showToast(message: "Accuracy is \(manager.location!.horizontalAccuracy)")
     }
     
     //when map is tap hide the menu or keyboard
@@ -725,7 +733,7 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
 //                textField.backgroundColor = .gray
 //                actionSheetController.view.addSubview(textField)
                 
-                
+            
                 actionSheetController.addTextField { (textField: UITextField) in
                     textField.keyboardAppearance = .dark
                     textField.keyboardType = .default
@@ -1143,6 +1151,8 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
     }
     
     
+    
+    
     //function when tagging image complete...trigger thru protocol from popover camereview
     func addmarkertomaps(marker: GMSMarker) {
        
@@ -1150,4 +1160,23 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
     }
     
 }
-
+extension UIViewController {
+    
+    func showToast(message : String) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } }

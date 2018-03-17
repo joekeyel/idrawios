@@ -152,7 +152,9 @@ class cameraviewcontroller: UIViewController,UINavigationControllerDelegate,UIIm
             ref = FIRDatabase.database().reference()
             ref.child("photomarkeridraw").child((FIRAuth.auth()?.currentUser?.uid)!).child(self.marker1.title!).setValue(["lat": self.marker1.position.latitude,"lng":self.marker1.position.longitude,"createdby":FIRAuth.auth()?.currentUser?.email ?? ""])
             
+            //update mysql database
             
+            self.updatemysql(markerin: self.marker1)
             
             if(self.delegate != nil){
                 // let tappedImage = tapGestureRecognizer.view as! UIImageView
@@ -170,6 +172,128 @@ class cameraviewcontroller: UIViewController,UINavigationControllerDelegate,UIIm
  
     }
     
+    
+    //reverse gecoding to get address base on marker click
+    
+    func updatemysqlserver(manholeid:String,state:String,postalcode:String,city:String,street:String,knownname:String,latitude:Double,longitude:Double,createdby:String) {
+        let parameters = ["manholeid" : manholeid  ,
+                          "state" :  state,
+                          "city" : city,
+                          "poskod" : postalcode,
+                          "street" : street  ,
+                          "knownname" : knownname ,
+                          "createdby" : createdby ,
+                          "latitude" : latitude ,
+                          "longitude" : longitude].map { "\($0)=\(String(describing: $1 ))" }
+        
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://58.27.84.188/addnewmanhole.php")! as URL)
+        request.httpMethod = "POST"
+        let postString = parameters.joined(separator: "&")
+        
+        
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+                
+                
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 {           // check for http errors
+                
+                print("response = \(String(describing: response))")
+                self.showToast(message: "Updated")
+                
+            }
+            
+            
+            
+            
+            
+        }
+        task.resume()
+   
+    }
+    
+    //function to update mysql server
+    
+    func updatemysql(markerin:GMSMarker){
+        
+       
+         let geocoder = GMSGeocoder()
+        
+        var state: String = ""
+        var postalcode: String = ""
+        var city: String = ""
+        var knownname: String = ""
+        var addressline: String = ""
+        
+        
+        geocoder.reverseGeocodeCoordinate(markerin.position, completionHandler:{ response, error in
+            
+            if let address = response?.firstResult() {
+            
+            
+                if(address.lines != nil){
+                    addressline = (address.lines?.joined(separator: "\n"))!
+                    
+                }
+                
+                if(address.locality != nil){
+                    state = address.administrativeArea!
+                    
+                }
+            
+                
+                if(address.postalCode != nil){
+                postalcode = address.postalCode!
+                }
+                if(address.subLocality != nil){
+                    city = address.locality!
+                    
+                }
+                if(address.thoroughfare != nil){
+                    knownname = address.thoroughfare!
+                    
+                }
+                
+                let manholeid = markerin.title!
+                let createdby = FIRAuth.auth()?.currentUser?.email!
+                let latitude = markerin.position.latitude
+                let longitude = markerin.position.longitude
+                
+                
+                self.updatemysqlserver(manholeid: manholeid,state: state,postalcode: postalcode,city: city,street: addressline,knownname: knownname,latitude: latitude,longitude:longitude,createdby:createdby!)
+               
+                
+                print(addressline)
+                print(state)
+                print(postalcode)
+                print(city)
+                print(knownname)
+                
+            }
+            
+            
+        })
+        
+      
+        
+      
+        
+      
+        
+        
+        
+        
+    }
     //uipickerview
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

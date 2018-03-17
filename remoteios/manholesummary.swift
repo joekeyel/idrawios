@@ -66,7 +66,7 @@ class manholesummary: UIViewController {
         
         self.manholeidlabel.topAnchor.constraint(equalTo: scrollview.topAnchor, constant: 10).isActive = true
         self.manholeidlabel.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive = true
-        self.manholeidlabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        self.manholeidlabel.widthAnchor.constraint(equalTo:view.widthAnchor,constant:-12).isActive = true
         
         
         self.manholeidlabel.font  = UIFont.italicSystemFont(ofSize: 15)
@@ -99,7 +99,7 @@ class manholesummary: UIViewController {
         self.labelutilization1value.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 12).isActive = true
         self.labelutilization1value.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
-        self.labelutilization1value.font  = UIFont.italicSystemFont(ofSize: 30)
+        self.labelutilization1value.font  = UIFont.italicSystemFont(ofSize: 20)
         self.labelutilization1value.textColor = UIColor.white
         self.labelutilization1value.textAlignment = NSTextAlignment.center
         self.labelutilization1value.backgroundColor = UIColor.green
@@ -127,7 +127,7 @@ class manholesummary: UIViewController {
         self.labelutilization2value.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         
-        self.labelutilization2value.font  = UIFont.italicSystemFont(ofSize: 30)
+        self.labelutilization2value.font  = UIFont.italicSystemFont(ofSize: 20)
         self.labelutilization2value.textColor = UIColor.white
         self.labelutilization2value.textAlignment = NSTextAlignment.center
         self.labelutilization2value.backgroundColor = UIColor.green
@@ -157,7 +157,7 @@ class manholesummary: UIViewController {
         self.labelutilization3value.widthAnchor.constraint(equalToConstant: 50).isActive = true
         
         
-        self.labelutilization3value.font  = UIFont.italicSystemFont(ofSize: 30)
+        self.labelutilization3value.font  = UIFont.italicSystemFont(ofSize: 20)
         self.labelutilization3value.textColor = UIColor.white
         self.labelutilization3value.textAlignment = NSTextAlignment.center
         self.labelutilization3value.backgroundColor = UIColor.green
@@ -187,7 +187,7 @@ class manholesummary: UIViewController {
         self.labelutilization4value.leftAnchor.constraint(equalTo: labelutilization3value.rightAnchor, constant: 12).isActive = true
         self.labelutilization4value.widthAnchor.constraint(equalToConstant: 50).isActive = true
        
-        self.labelutilization4value.font  = UIFont.italicSystemFont(ofSize: 30)
+        self.labelutilization4value.font  = UIFont.italicSystemFont(ofSize: 20)
         self.labelutilization4value.textColor = UIColor.white
         self.labelutilization4value.textAlignment = NSTextAlignment.center
         self.labelutilization4value.backgroundColor = UIColor.green
@@ -203,8 +203,8 @@ class manholesummary: UIViewController {
         self.labelutilizationallvalue.widthAnchor.constraint(equalToConstant: 50).isActive = true
         self.labelutilizationallvalue.heightAnchor.constraint(equalToConstant: 50).isActive = true
        
-        self.labelutilizationallvalue.font  = UIFont.italicSystemFont(ofSize: 30.0)
-         self.labelutilizationallvalue.font  = UIFont.boldSystemFont(ofSize: 30)
+        self.labelutilizationallvalue.font  = UIFont.italicSystemFont(ofSize: 20)
+         self.labelutilizationallvalue.font  = UIFont.boldSystemFont(ofSize: 20)
         self.labelutilizationallvalue.textColor = UIColor.white
         self.labelutilizationallvalue.textAlignment = NSTextAlignment.center
         
@@ -491,9 +491,9 @@ class manholesummary: UIViewController {
             }
             
             if(countall>0){
-                let utilizationall = (wall1utilization + wall2utilization + wall3utilization + wall4utilization)/4
+                let utilizationallfinal = utilizationall/countall
                 
-                self.labelutilizationallvalue.text = "\(utilizationall)"
+                self.labelutilizationallvalue.text = "\(utilizationallfinal)"
             }
             
         }) { (nil) in
@@ -531,7 +531,7 @@ class manholesummary: UIViewController {
             let myVC = storyboard?.instantiateViewController(withIdentifier: "manholedetails") as! manholedetails
             myVC.manholename = marker.title
            myVC.wallnumbername = "W1"
-            
+            myVC.markerdetails = marker
             navigationController?.pushViewController(myVC, animated: true)
             
         
@@ -542,6 +542,7 @@ class manholesummary: UIViewController {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "manholedetails") as! manholedetails
         myVC.manholename = marker.title
         myVC.wallnumbername = "W2"
+        myVC.markerdetails = marker
         
         navigationController?.pushViewController(myVC, animated: true)
     }
@@ -551,6 +552,7 @@ class manholesummary: UIViewController {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "manholedetails") as! manholedetails
         myVC.manholename = marker.title
         myVC.wallnumbername = "W3"
+         myVC.markerdetails = marker
         
         navigationController?.pushViewController(myVC, animated: true)
     }
@@ -560,6 +562,7 @@ class manholesummary: UIViewController {
         let myVC = storyboard?.instantiateViewController(withIdentifier: "manholedetails") as! manholedetails
         myVC.manholename = marker.title
         myVC.wallnumbername = "W4"
+        myVC.markerdetails = marker
         
         navigationController?.pushViewController(myVC, animated: true)
     }

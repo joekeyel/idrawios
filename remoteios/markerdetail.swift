@@ -85,7 +85,7 @@ class markerdetail: UIViewController {
         let currentuser:String = (FIRAuth.auth()?.currentUser?.email)!
         let creatdby: String = marker1.userData as! String
         
-        if(creatdby == currentuser || (marker1.title?.contains("Cabinet_"))! || (marker1.title?.contains("Manhole_"))! || (marker1.title?.contains("DP_"))!){
+        if(creatdby == currentuser && (marker1.title?.contains("Cabinet_"))! || (marker1.title?.contains("ManHole_"))! || (marker1.title?.contains("DP_"))!){
             var ref: FIRDatabaseReference!
             
             ref = FIRDatabase.database().reference()
@@ -93,9 +93,23 @@ class markerdetail: UIViewController {
             
             ref.child("photomarkeridraw").child((FIRAuth.auth()?.currentUser?.uid)!).child(marker1.title!).removeValue()
             
+            //delete mysqlserver
+            deletemysqlserver(manholeid: marker1.title!, createdby: currentuser)
+            
         }
         
-        if(creatdby == currentuser && !(marker1.title?.contains("Cabinet_"))! && !(marker1.title?.contains("Manhole_"))! && !(marker1.title?.contains("DP_"))!){
+        
+        if(creatdby == currentuser  && (marker1.title?.contains("ManHole_"))!){
+            var ref: FIRDatabaseReference!
+            
+            ref = FIRDatabase.database().reference()
+            
+            
+            ref.child("Nesductidutilization").child(marker1.title!).removeValue()
+            
+        }
+        
+        if(creatdby == currentuser && !(marker1.title?.contains("Cabinet_"))! && !(marker1.title?.contains("ManHole_"))! && !(marker1.title?.contains("DP_"))!){
             var ref: FIRDatabaseReference!
             
             ref = FIRDatabase.database().reference()
@@ -141,7 +155,7 @@ class markerdetail: UIViewController {
    
     @IBAction func gotowall(_ sender: Any) {
         
-        
+       if(marker1.title?.range(of:"ManHole_") != nil){
         if(delegate != nil){
             // let tappedImage = tapGestureRecognizer.view as! UIImageView
             print("tapped")
@@ -150,19 +164,53 @@ class markerdetail: UIViewController {
             self.dismiss(animated: true, completion: nil)
             
         }
+        }
     }
+    
+    func deletemysqlserver(manholeid:String,createdby:String) {
+        let parameters = ["manholeid" : manholeid  ,
+                          "createdby" : createdby ].map { "\($0)=\(String(describing: $1 ))" }
+        
+        
+        let request = NSMutableURLRequest(url: NSURL(string: "http://58.27.84.188/deletemanhole.php")! as URL)
+        request.httpMethod = "POST"
+        let postString = parameters.joined(separator: "&")
+        
+        
+        request.httpBody = postString.data(using: String.Encoding.utf8)
+        let task = URLSession.shared.dataTask(with: request as URLRequest) { data, response, error in
+            guard error == nil && data != nil else {                                                          // check for fundamental networking error
+                print("error=\(String(describing: error))")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(String(describing: response))")
+                
+                
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode == 200 {           // check for http errors
+                
+                print("response = \(String(describing: response))")
+                self.showToast(message: "Updated")
+                
+            }
+            
+            
+            
+            
+            
+        }
+        task.resume()
+        
+    }
+    
+    
     
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 
