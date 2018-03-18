@@ -28,7 +28,7 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
     var locationManager = CLLocationManager()
     
     
-    let arraydatasources = ["Map Type","Sign Out"]
+    let arraydatasources = ["Map Type","Sign Out","Boundry List"]
     
     
  
@@ -67,6 +67,7 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
     
     //collect all marker appear
      var markerDict :[GMSMarker] = []
+    var markerDictboundry :[GMSMarker] = []
     
     // for speech recognizer
     let audioEngine = AVAudioEngine()
@@ -195,7 +196,15 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
     
     @IBAction func reloadaction(_ sender: Any) {
         
-        firebaselistenr()
+        self.firebaselistenr()
+        self.pathdraw.removeAllCoordinates()
+        self.polylinecoordinates.removeAll()
+        self.drawtoggle.title = "Draw"
+        self.drawtoggle.image = #imageLiteral(resourceName: "pencilicon")
+      
+        self.mapView.isUserInteractionEnabled = true
+       
+     
     }
     
     //function to move to streetview
@@ -660,6 +669,34 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         }
         }
         
+        
+        if(textselected == "Boundry List"){
+            
+            if(markerDictboundry.count > 0){
+            
+            // get a reference to the view controller for the popover
+            let popController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "searchlist") as! searchlist
+            
+            popController.delegate = self
+            // set the presentation style...this to make popover not cover all the area
+            popController.modalPresentationStyle = UIModalPresentationStyle.popover
+            
+            // set up the popover presentation controller
+            popController.popoverPresentationController?.permittedArrowDirections = UIPopoverArrowDirection.up
+            popController.popoverPresentationController?.delegate = self
+            
+            //button
+            popController.popoverPresentationController?.barButtonItem = searchbtn
+            
+            popController.markerDict = markerDictboundry
+            
+            
+            // present the popover
+            self.present(popController, animated: true, completion: nil)
+            
+           }
+        }
+        
     }
     
     
@@ -816,6 +853,8 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         
         
     }
+    
+    
     
     
     func mapView(_ mapView: GMSMapView, didDrag marker: GMSMarker) {
@@ -988,8 +1027,16 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        markerDictboundry.removeAll()
         
-        
+        for points in markerDict {
+            
+            if(GMSGeometryContainsLocation(points.position, pathdraw, true)){
+                
+                markerDictboundry.append(points)
+            }
+            
+        }
         
         //pathdraw.removeAllCoordinates()
     }
