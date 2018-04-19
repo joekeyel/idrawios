@@ -416,7 +416,7 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         
         let marker = GMSMarker(position: (location?.coordinate)!)
         marker.title = "My Location"
-        marker.map = mapView
+       // marker.map = mapView
         
        let camera = GMSCameraPosition.camera(withLatitude: (location?.coordinate.latitude)!, longitude:(location?.coordinate.longitude)!, zoom:16)
         mapView.animate(to: camera)
@@ -588,18 +588,6 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
     }
     
     
-    
-  
-    
-  
-    
-    
-    //MARK: - Check Authorization Status
-    
-   
-    
-    
-   
     
     
     func numberOfSections(in tableView: UITableView) -> Int {

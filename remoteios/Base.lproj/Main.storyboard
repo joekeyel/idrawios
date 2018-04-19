@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -334,14 +334,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pickerView contentMode="scaleToFill" verticalCompressionResistancePriority="747" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="emZ-9e-pI7">
-                                <rect key="frame" x="0.0" y="404" width="375" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="RwT-E9-mpr" id="TWc-iH-yM6"/>
-                                    <outlet property="delegate" destination="RwT-E9-mpr" id="37m-Vs-huo"/>
-                                </connections>
-                            </pickerView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Cable Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRI-J3-BGq">
                                 <rect key="frame" x="0.0" y="309" width="375" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -386,6 +378,77 @@
                                     <action selector="deleteduct:" destination="RwT-E9-mpr" eventType="touchUpInside" id="egT-Ms-NwE"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="W7N-U9-7fu" customClass="DLRadioButton">
+                                <rect key="frame" x="64" y="265" width="30" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="zero3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="zero3press"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiozero3:" destination="RwT-E9-mpr" eventType="touchUpInside" id="W0p-ur-Jid"/>
+                                    <outletCollection property="otherButtons" destination="Muc-di-pqf" id="Yt6-xm-j0j"/>
+                                    <outletCollection property="otherButtons" destination="6qY-Os-hmV" id="nY9-zp-wG5"/>
+                                    <outletCollection property="otherButtons" destination="cyg-Kz-SwC" id="kIr-nf-445"/>
+                                    <outletCollection property="otherButtons" destination="H2H-wW-6V2" id="ebj-w0-77I"/>
+                                    <outletCollection property="otherButtons" destination="RDs-K8-2Mi" id="SN6-gQ-Kez"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Muc-di-pqf" customClass="DLRadioButton">
+                                <rect key="frame" x="117" y="265" width="30" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="one3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="one3press"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radioone3:" destination="RwT-E9-mpr" eventType="touchUpInside" id="WFz-dL-Oxo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6qY-Os-hmV" customClass="DLRadioButton">
+                                <rect key="frame" x="164" y="261" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="two3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="two3press"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiotwo3:" destination="RwT-E9-mpr" eventType="touchUpInside" id="OVU-28-b9p"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cyg-Kz-SwC" customClass="DLRadioButton">
+                                <rect key="frame" x="218" y="261" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="three3"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="three3press"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiothree3:" destination="RwT-E9-mpr" eventType="touchUpInside" id="2WW-dh-qIv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H2H-wW-6V2" customClass="DLRadioButton">
+                                <rect key="frame" x="281" y="265" width="30" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="one1"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="one1press"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radioone1:" destination="RwT-E9-mpr" eventType="touchUpInside" id="m53-Sk-PLY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDs-K8-2Mi" customClass="DLRadioButton">
+                                <rect key="frame" x="336" y="265" width="30" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="icon" value="zero1"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="iconSelected" value="zero1press"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiozero1:" destination="RwT-E9-mpr" eventType="touchUpInside" id="8bc-Y2-PWB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -394,9 +457,14 @@
                         <outlet property="deleteduct" destination="cca-Aw-dZy" id="JL9-hj-kA6"/>
                         <outlet property="occupancy" destination="ui4-V3-c2T" id="xtu-DZ-bfl"/>
                         <outlet property="occupancylabel" destination="Ltx-ap-KYX" id="76N-S7-f6q"/>
-                        <outlet property="pickerview" destination="emZ-9e-pI7" id="uAt-Uk-Ad8"/>
+                        <outlet property="one1" destination="H2H-wW-6V2" id="Ne3-3k-sWA"/>
+                        <outlet property="one3" destination="Muc-di-pqf" id="mrZ-k0-Uh8"/>
                         <outlet property="slideroccupancy" destination="UHp-OP-wE8" id="H8D-uw-pEG"/>
+                        <outlet property="three3" destination="cyg-Kz-SwC" id="nKC-5h-6On"/>
+                        <outlet property="two3" destination="6qY-Os-hmV" id="HQm-9b-O9w"/>
                         <outlet property="updateoccupancy" destination="LFs-G9-aOu" id="PJ9-eP-I7Q"/>
+                        <outlet property="zero1" destination="RDs-K8-2Mi" id="9tY-GF-461"/>
+                        <outlet property="zero3" destination="W7N-U9-7fu" id="rHR-Yr-wX9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYp-mv-loH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -415,13 +483,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Duct Nest Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zT8-mt-w0v">
-                                <rect key="frame" x="16" y="85" width="343" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New Duct Nest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBW-Zx-mbr">
                                 <rect key="frame" x="16" y="41" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -444,13 +505,124 @@
                                     <action selector="addaction:" destination="Y2k-fF-W47" eventType="touchUpInside" id="E95-3s-C1v"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Ga-bA-yBA" customClass="DLRadioButton">
+                                <rect key="frame" x="49" y="365" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ND1">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiobuttonaction:" destination="Y2k-fF-W47" eventType="touchUpInside" id="tTq-dO-DL3"/>
+                                    <outletCollection property="otherButtons" destination="t2C-nc-oSc" id="Y9k-9x-hsU"/>
+                                    <outletCollection property="otherButtons" destination="wwv-sl-0Pi" id="8ch-Xw-DKa"/>
+                                    <outletCollection property="otherButtons" destination="XQV-9Y-QKF" id="gmU-hK-T6l"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t2C-nc-oSc" customClass="DLRadioButton">
+                                <rect key="frame" x="103" y="365" width="46" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ND2">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiobuttonaction2:" destination="Y2k-fF-W47" eventType="touchUpInside" id="3AZ-Ss-SxN"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwv-sl-0Pi" customClass="DLRadioButton">
+                                <rect key="frame" x="169" y="366" width="37" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ND3">
+                                            <attributes>
+                                                <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiobuttonaction3:" destination="Y2k-fF-W47" eventType="touchUpInside" id="zlZ-YG-95W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XQV-9Y-QKF" customClass="DLRadioButton">
+                                <rect key="frame" x="218" y="367" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="ND4">
+                                            <attributes>
+                                                <font key="NSFont" metaFont="system" size="18"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorColor">
+                                        <color key="value" red="0.94027495384216309" green="0.61042505502700806" blue="0.13178080320358276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="radiobuttonaction4:" destination="Y2k-fF-W47" eventType="touchUpInside" id="Cln-pv-TUc"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6Y-dB-qWq">
+                                <rect key="frame" x="16" y="80" width="343" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.43529411759999997" green="0.4431372549" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
                         <outlet property="ductlistlabel" destination="BeG-HS-pmd" id="3xt-Vi-rT6"/>
-                        <outlet property="ductnesttv" destination="zT8-mt-w0v" id="7zc-aZ-wQ0"/>
+                        <outlet property="ductnestname" destination="A6Y-dB-qWq" id="UwH-pS-W8l"/>
                         <outlet property="labelpopover" destination="uBW-Zx-mbr" id="57e-Hq-4ew"/>
+                        <outlet property="ndradio1" destination="4Ga-bA-yBA" id="Fo1-ja-KTy"/>
+                        <outlet property="ndradio2" destination="t2C-nc-oSc" id="bzC-Og-hUY"/>
+                        <outlet property="ndradio3" destination="wwv-sl-0Pi" id="UBd-9T-pjH"/>
+                        <outlet property="ndradio4" destination="XQV-9Y-QKF" id="HqP-mW-z1m"/>
                         <outlet property="update" destination="WdR-AN-TcE" id="1rz-jN-f4C"/>
                     </connections>
                 </viewController>
@@ -1577,10 +1749,22 @@
         </scene>
     </scenes>
     <resources>
+        <image name="one1" width="45" height="44"/>
+        <image name="one1press" width="45" height="44"/>
+        <image name="one3" width="45" height="44"/>
+        <image name="one3press" width="45" height="44"/>
         <image name="pencilicon" width="29" height="29"/>
         <image name="penicon" width="40" height="40"/>
         <image name="reloadicon" width="29" height="29"/>
         <image name="searchicon" width="40" height="40"/>
         <image name="tagicon" width="40" height="40"/>
+        <image name="three3" width="45" height="44"/>
+        <image name="three3press" width="45" height="44"/>
+        <image name="two3" width="45" height="44"/>
+        <image name="two3press" width="45" height="44"/>
+        <image name="zero1" width="45" height="44"/>
+        <image name="zero1press" width="45" height="44"/>
+        <image name="zero3" width="45" height="44"/>
+        <image name="zero3press" width="45" height="44"/>
     </resources>
 </document>

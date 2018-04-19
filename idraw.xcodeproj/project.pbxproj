@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3001E9622054FFBD00DC6128 /* popovernewductnest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3001E9612054FFBD00DC6128 /* popovernewductnest.swift */; };
+		3006290820847A5C009DFF10 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3006290720847A5C009DFF10 /* DLRadioButton.m */; };
 		3023B9FD1F2F691B00A52650 /* hidekeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3023B9FC1F2F691B00A52650 /* hidekeyboard.swift */; };
 		302876DD1F70B7A8008F69A6 /* cameraviewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302876DC1F70B7A8008F69A6 /* cameraviewcontroller.swift */; };
 		302886581F1C7D2A00623542 /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302886571F1C7D2A00623542 /* images.xcassets */; };
-		302996291FF49D50000C4B39 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 302996261FF4727A000C4B39 /* GoogleService-Info.plist */; };
 		3048E6CC1F1DCEB400DA8296 /* cellmenupopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3048E6CB1F1DCEB400DA8296 /* cellmenupopover.swift */; };
 		304AD8F4204D287500A869E4 /* manholedetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304AD8F3204D287500A869E4 /* manholedetails.swift */; };
 		30536B4A1F4688D50056B391 /* viewcellmenudetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30536B491F4688D50056B391 /* viewcellmenudetail.swift */; };
@@ -26,6 +26,7 @@
 		3062194B1F721C53002CAE0C /* infowindowsmaps.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3062194A1F721C53002CAE0C /* infowindowsmaps.xib */; };
 		3062194D1F721CE7002CAE0C /* infowindowsmaps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3062194C1F721CE7002CAE0C /* infowindowsmaps.swift */; };
 		306DC34E1EF96F2500A5E082 /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DC34D1EF96F2500A5E082 /* register.swift */; };
+		3070FF5D2087796C00268FB6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3070FF5C2087774100268FB6 /* GoogleService-Info.plist */; };
 		307D0031200B8D7300E00C41 /* registercontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307D0030200B8D7300E00C41 /* registercontroller.swift */; };
 		30981638200850C30020976B /* searchlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30981637200850C30020976B /* searchlist.swift */; };
 		3098163A20085E080020976B /* searchcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098163920085E080020976B /* searchcell.swift */; };
@@ -69,10 +70,12 @@
 /* Begin PBXFileReference section */
 		033FB0084C3DE67FCB8D90C4 /* Pods-idrawTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-idrawTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-idrawTests/Pods-idrawTests.release.xcconfig"; sourceTree = "<group>"; };
 		3001E9612054FFBD00DC6128 /* popovernewductnest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popovernewductnest.swift; sourceTree = "<group>"; };
+		3006290520847A5A009DFF10 /* idraw-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "idraw-Bridging-Header.h"; sourceTree = "<group>"; };
+		3006290620847A5B009DFF10 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DLRadioButton.h; path = "../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.h"; sourceTree = "<group>"; };
+		3006290720847A5C009DFF10 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DLRadioButton.m; path = "../../Downloads/DLRadioButton-master/DLRadioButton/DLRadioButton.m"; sourceTree = "<group>"; };
 		3023B9FC1F2F691B00A52650 /* hidekeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = hidekeyboard.swift; sourceTree = "<group>"; };
 		302876DC1F70B7A8008F69A6 /* cameraviewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = cameraviewcontroller.swift; path = ../cameraviewcontroller.swift; sourceTree = "<group>"; };
 		302886571F1C7D2A00623542 /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
-		302996261FF4727A000C4B39 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3048E6CB1F1DCEB400DA8296 /* cellmenupopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cellmenupopover.swift; sourceTree = "<group>"; };
 		304AD8F3204D287500A869E4 /* manholedetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manholedetails.swift; sourceTree = "<group>"; };
 		30536B491F4688D50056B391 /* viewcellmenudetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = viewcellmenudetail.swift; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		3062194A1F721C53002CAE0C /* infowindowsmaps.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = infowindowsmaps.xib; sourceTree = "<group>"; };
 		3062194C1F721CE7002CAE0C /* infowindowsmaps.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = infowindowsmaps.swift; sourceTree = "<group>"; };
 		306DC34D1EF96F2500A5E082 /* register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
+		3070FF5C2087774100268FB6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		307D0030200B8D7300E00C41 /* registercontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registercontroller.swift; sourceTree = "<group>"; };
 		30981637200850C30020976B /* searchlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchlist.swift; sourceTree = "<group>"; };
 		3098163920085E080020976B /* searchcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchcell.swift; sourceTree = "<group>"; };
@@ -196,8 +200,10 @@
 			isa = PBXGroup;
 			children = (
 				30E66AFB1F56963200808338 /* model */,
-				302996261FF4727A000C4B39 /* GoogleService-Info.plist */,
 				302876DC1F70B7A8008F69A6 /* cameraviewcontroller.swift */,
+				3070FF5C2087774100268FB6 /* GoogleService-Info.plist */,
+				3006290620847A5B009DFF10 /* DLRadioButton.h */,
+				3006290720847A5C009DFF10 /* DLRadioButton.m */,
 				30B617081F546D3C0087BD34 /* logincontroller.swift */,
 				305CB3D61E814677002732CB /* AppDelegate.swift */,
 				30A63AF01F1608A100AFDC4C /* basecell.xib */,
@@ -228,6 +234,7 @@
 				30B0C004204E30520004A455 /* manholesummary.swift */,
 				30A0C28D2053D6D500CA006E /* popoveroccupancy.swift */,
 				3001E9612054FFBD00DC6128 /* popovernewductnest.swift */,
+				3006290520847A5A009DFF10 /* idraw-Bridging-Header.h */,
 			);
 			path = remoteios;
 			sourceTree = "<group>";
@@ -350,6 +357,7 @@
 					305CB3D21E814677002732CB = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = XUR2D2723B;
+						LastSwiftMigration = 0930;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -398,7 +406,7 @@
 			files = (
 				30B617071F54671F0087BD34 /* login.storyboard in Resources */,
 				3062194B1F721C53002CAE0C /* infowindowsmaps.xib in Resources */,
-				302996291FF49D50000C4B39 /* GoogleService-Info.plist in Resources */,
+				3070FF5D2087796C00268FB6 /* GoogleService-Info.plist in Resources */,
 				30A63AF11F1608A100AFDC4C /* basecell.xib in Resources */,
 				302886581F1C7D2A00623542 /* images.xcassets in Resources */,
 				30536B4C1F46A0430056B391 /* maps.storyboard in Resources */,
@@ -580,6 +588,7 @@
 				30536B4A1F4688D50056B391 /* viewcellmenudetail.swift in Sources */,
 				30B617091F546D3C0087BD34 /* logincontroller.swift in Sources */,
 				30981638200850C30020976B /* searchlist.swift in Sources */,
+				3006290820847A5C009DFF10 /* DLRadioButton.m in Sources */,
 				30A63AF31F160B2700AFDC4C /* BaseViewCell.swift in Sources */,
 				30E66AFD1F56966500808338 /* user.swift in Sources */,
 				30B0C005204E30520004A455 /* manholesummary.swift in Sources */,
@@ -742,6 +751,7 @@
 			baseConfigurationReference = 9FF44719547B4FFE6DB7F5DE /* Pods-idraw.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUR2D2723B;
@@ -752,6 +762,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "remoteios/idraw-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -762,6 +774,7 @@
 			baseConfigurationReference = 619C8DBFA830E728E5FE5522 /* Pods-idraw.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = XUR2D2723B;
@@ -772,6 +785,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "remoteios/idraw-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
