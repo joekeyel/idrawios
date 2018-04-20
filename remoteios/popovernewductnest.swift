@@ -40,6 +40,7 @@ class popovernewductnest: UIViewController {
     var collist:[Int] = []
     var rowlist:[String] = []
     var startduct:String = ""
+    var wall:String = ""
     
      var delegate:protocoladdnewnestduct? = nil
     var marker = GMSMarker()
@@ -119,7 +120,7 @@ class popovernewductnest: UIViewController {
         self.ductlistlabel.topAnchor.constraint(equalTo: update.bottomAnchor,constant:10).isActive = true
         self.ductlistlabel.widthAnchor.constraint(equalTo: view.widthAnchor,constant:-24).isActive = true
        
-        var wall:String = ""
+        
         
         let sorted = Array(ductdictionary1.keys).sorted()
         
@@ -207,6 +208,7 @@ class popovernewductnest: UIViewController {
         startduct = sorted[0]
         let endIndex = startduct.index(startduct.startIndex, offsetBy: 2)
         startduct = startduct.substring(from: endIndex)
+       
         
         self.ductlistlabel.numberOfLines = 0
         self.ductlistlabel.lineBreakMode = .byWordWrapping
@@ -244,14 +246,40 @@ class popovernewductnest: UIViewController {
             let width:Int = collist.count
             let height:Int = rowlist.count
             
-        
-        
-        for duct1 in ductdictionary1 {
+            let endIndex = startduct.index(startduct.endIndex, offsetBy: -1)
+            let startcharacter:String = startduct.substring(to: endIndex)
             
-           
-            addnewnestduct(duct: duct1.key, nesduct: ductneststr, manholeid: manholename, startduct: startduct, width: width, height: height)
-           
-           }
+            let endIndex2 = startduct.index(startduct.startIndex, offsetBy: 1)
+            let col:Int = Int(startduct.substring(from: endIndex2))!
+            
+            let char : UnicodeScalar = UnicodeScalar(startcharacter)!
+            let startingValue = Int((char).value)
+            var ductdictionaryrecreate = [String]()
+            
+         //recreateback the dimention of nestduct base on width startduct and height to ductdictionaryrecreate
+            
+            for j in 0 ..< height {
+                
+                 for i in col ..< col+width {
+                    print("\(wall)\(Character(UnicodeScalar(j + startingValue)!))\(i)")
+                    ductdictionaryrecreate.append("\(wall)\(Character(UnicodeScalar(j + startingValue)!))\(i)")
+                    
+                }
+            }
+            
+            for duct1 in ductdictionaryrecreate {
+                
+                
+                addnewnestduct(duct: duct1, nesduct: ductneststr, manholeid: manholename, startduct: startduct, width: width, height: height)
+                
+            }
+            
+//        for duct1 in ductdictionary1 {
+//
+//
+//            addnewnestduct(duct: duct1.key, nesduct: ductneststr, manholeid: manholename, startduct: startduct, width: width, height: height)
+//
+//           }
         }
         
     }
@@ -285,7 +313,7 @@ class popovernewductnest: UIViewController {
                 
                 ref.child("Nesductidutilization").child(marker.title!).child(nesduct).child(duct).child("height").setValue(height)
                 
-                addnewductmysql(manholeid:marker.title!,nesduct:nesduct,duct:duct,occupancy:"AVAILABLE",utilization:0)
+                addnewductmysql(manholeid:marker.title!,nesduct:nesduct,duct:duct,occupancy:"AVAILABLE",utilization:0,height: height,width:width,startduct: startduct)
                 
             }
             
@@ -297,11 +325,14 @@ class popovernewductnest: UIViewController {
     }
     
     
-    func addnewductmysql(manholeid:String,nesduct:String,duct:String,occupancy:String,utilization:Int) {
+    func addnewductmysql(manholeid:String,nesduct:String,duct:String,occupancy:String,utilization:Int,height:Int,width:Int,startduct:String) {
         let parameters = ["manholeid" : manholeid  ,
                           "nestduct" :  nesduct,
                           "occupancy" : occupancy,
                           "duct" : duct,
+                          "startduct" : startduct,
+                          "height" : height,
+                          "width" : width,
                           "createdby" : FIRAuth.auth()?.currentUser?.email! ?? "",
                           "utilization" : utilization ].map { "\($0)=\(String(describing: $1 ))" }
         

@@ -182,8 +182,11 @@ class popoveroccupancy: UIViewController {
             
         }
         
-        delegate?.getter2()
-        self.dismiss(animated: true, completion: nil)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // change 2 to desired number of seconds
+            self.delegate?.getter2()
+            self.dismiss(animated: true, completion: nil)
+        }
+       
         
         
     }

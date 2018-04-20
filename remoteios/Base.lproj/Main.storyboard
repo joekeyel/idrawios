@@ -365,7 +365,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFs-G9-aOu">
                                 <rect key="frame" x="0.0" y="515" width="373" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Update"/>
+                                <state key="normal" title="Update Change"/>
                                 <connections>
                                     <action selector="updateduct:" destination="RwT-E9-mpr" eventType="touchUpInside" id="KVS-KG-RfE"/>
                                 </connections>
@@ -373,7 +373,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cca-Aw-dZy">
                                 <rect key="frame" x="0.0" y="553" width="373" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Delete Duct"/>
+                                <state key="normal" title="Delete Nestduct"/>
                                 <connections>
                                     <action selector="deleteduct:" destination="RwT-E9-mpr" eventType="touchUpInside" id="egT-Ms-NwE"/>
                                 </connections>
