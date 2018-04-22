@@ -81,38 +81,6 @@
             endingLineNumber = "260"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.listttcontroller.tableView(__ObjC.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/listttcontroller.swift"
-                  timestampString = "537431022.911455"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
-                  offsetFromSymbolStart = "2592">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in idraw.listttcontroller.tableView(__ObjC.UITableView, didSelectRowAt: Foundation.IndexPath) -&gt; ()"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/listttcontroller.swift"
-                  timestampString = "537431022.9138221"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "260"
-                  endingLineNumber = "260"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -161,38 +129,6 @@
             endingLineNumber = "105"
             landmarkName = "init()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.menumanager.__allocating_init() -&gt; idraw.menumanager"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/menumanager.swift"
-                  timestampString = "537431022.927606"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "8">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.menumanager.init() -&gt; idraw.menumanager"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/menumanager.swift"
-                  timestampString = "537431022.929978"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -442,7 +378,7 @@
                   moduleName = "idraw"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/AppDelegate.swift"
-                  timestampString = "537431022.980482"
+                  timestampString = "545961560.411924"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -457,7 +393,7 @@
                   moduleName = "idraw"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/AppDelegate.swift"
-                  timestampString = "537431022.982854"
+                  timestampString = "545961560.414867"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -472,12 +408,12 @@
                   moduleName = "idraw"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/AppDelegate.swift"
-                  timestampString = "537431022.985212"
+                  timestampString = "545961560.4171751"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "23"
                   endingLineNumber = "23"
-                  offsetFromSymbolStart = "44">
+                  offsetFromSymbolStart = "48">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -487,7 +423,7 @@
                   moduleName = "idraw"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/AppDelegate.swift"
-                  timestampString = "537431022.9875489"
+                  timestampString = "545961560.4193161"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
@@ -591,68 +527,6 @@
             endingLineNumber = "13"
             landmarkName = "scheduleviewcontroller"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.scheduleviewcontroller.searchbar.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UISearchBar&gt;"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/scheduleviewcontroller.swift"
-                  timestampString = "537431023.007378"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "92">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.scheduleviewcontroller.searchbar.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.UISearchBar&gt;"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/scheduleviewcontroller.swift"
-                  timestampString = "537431023.009797"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "96">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.scheduleviewcontroller.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; idraw.scheduleviewcontroller"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/scheduleviewcontroller.swift"
-                  timestampString = "537431023.012149"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "72">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.scheduleviewcontroller.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;idraw.scheduleviewcontroller&gt;"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/scheduleviewcontroller.swift"
-                  timestampString = "537431023.014491"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "13"
-                  endingLineNumber = "13"
-                  offsetFromSymbolStart = "52">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -701,38 +575,6 @@
             endingLineNumber = "98"
             landmarkName = "fetchsummary3()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in idraw.scheduleviewcontroller.fetchsummary3() -&gt; ()"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/scheduleviewcontroller.swift"
-                  timestampString = "537431023.0300291"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "16092">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in idraw.scheduleviewcontroller.fetchsummary3() -&gt; ()"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/scheduleviewcontroller.swift"
-                  timestampString = "537431023.032387"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "98"
-                  endingLineNumber = "98"
-                  offsetFromSymbolStart = "20300">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -829,68 +671,6 @@
             endingLineNumber = "20"
             landmarkName = "detailscontroller"
             landmarkType = "3">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.detailscontroller.ttinfo.getter : idraw.listttobject"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/detailscontroller.swift"
-                  timestampString = "537431023.054574"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "104">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.detailscontroller.ttinfo.setter : idraw.listttobject"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/detailscontroller.swift"
-                  timestampString = "537431023.056963"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "120">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.detailscontroller.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; idraw.detailscontroller"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/detailscontroller.swift"
-                  timestampString = "537431023.059378"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "680">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "idraw.detailscontroller.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;idraw.detailscontroller&gt;"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/detailscontroller.swift"
-                  timestampString = "537431023.062462"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "636">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -971,38 +751,6 @@
             endingLineNumber = "86"
             landmarkName = "unknown"
             landmarkType = "0">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in idraw.reasoncodeview.fetchreasoncode() -&gt; ()"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/reasoncodeview.swift"
-                  timestampString = "537431023.082945"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "208">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Bool in closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in idraw.reasoncodeview.fetchreasoncode() -&gt; ()"
-                  moduleName = "idraw"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hasanulisyraf/idrawit2/remoteios/reasoncodeview.swift"
-                  timestampString = "537431023.0853781"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "86"
-                  endingLineNumber = "86"
-                  offsetFromSymbolStart = "32">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

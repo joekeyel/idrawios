@@ -16,6 +16,7 @@ protocol sendDataToViewProtocol {
     func inputData(marker:GMSMarker)
     func reloadmarker()
     func gotomanholesummary(marker:GMSMarker)
+    func gotoextrainfo(marker:GMSMarker)
 }
 class markerdetail: UIViewController {
     
@@ -166,6 +167,23 @@ class markerdetail: UIViewController {
         }
         }
     }
+    
+    
+    @IBAction func gotoextrainfo(_ sender: Any) {
+        
+        
+        if(marker1.title?.range(of:"ManHole_") != nil){
+            if(delegate != nil){
+                // let tappedImage = tapGestureRecognizer.view as! UIImageView
+                print("tapped")
+                
+                delegate?.gotoextrainfo(marker: marker1)
+                self.dismiss(animated: true, completion: nil)
+                
+            }
+        }
+    }
+    
     
     func deletemysqlserver(manholeid:String,createdby:String) {
         let parameters = ["manholeid" : manholeid  ,

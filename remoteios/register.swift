@@ -227,6 +227,16 @@ class register: UIViewController,UITextFieldDelegate ,UITableViewDelegate,UITabl
         
     }
     
+    
+    func gotoextrainfo(marker: GMSMarker) {
+        
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "manholeextrainfo") as! manholeextrainfo
+        myVC.marker = marker
+        
+        navigationController?.pushViewController(myVC, animated: true)
+        
+    }
+    
     func reloadmarker(){
         firebaselistenr()
     }
