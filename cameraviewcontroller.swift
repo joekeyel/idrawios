@@ -24,9 +24,9 @@ class cameraviewcontroller: UIViewController,UINavigationControllerDelegate,UIIm
     @IBOutlet weak var selectelement: UIPickerView!
     //for pickerview type of element
     
-     let arrayregion = ["Cabinet","ManHole","DP"]
+     let arrayregion = ["ManHole"]
     
-    var networkelement = "Cabinet"
+    var networkelement = "ManHole"
     var marker1 = GMSMarker()
     
      var delegate:addmarkeraftertagdelegate? = nil
@@ -37,6 +37,9 @@ class cameraviewcontroller: UIViewController,UINavigationControllerDelegate,UIIm
         super.viewDidLoad()
 
         uploadbutton.isHidden = true
+        
+//        imagename.delegate = self as? UITextFieldDelegate
+//        imagename.keyboardType = UIKeyboardType.phonePad
     }
     
     

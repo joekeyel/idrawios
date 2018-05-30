@@ -18,7 +18,12 @@ protocol sendDataToViewProtocol {
     func gotomanholesummary(marker:GMSMarker)
     func gotoextrainfo(marker:GMSMarker)
 }
-class markerdetail: UIViewController {
+class markerdetail: UIViewController ,UITableViewDataSource,UITableViewDelegate{
+    
+   
+    @IBOutlet weak var inputremark: UITextField!
+    
+    @IBOutlet weak var tableremark: UITableView!
     
     @IBOutlet weak var copy_longitude: UIButton!
     @IBOutlet weak var copy_latitude: UIButton!
@@ -29,6 +34,7 @@ class markerdetail: UIViewController {
     @IBOutlet weak var displaycopied: UILabel!
     var delegate:sendDataToViewProtocol? = nil
     var marker1 = GMSMarker()
+    var remarklist:[remarkobject] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +68,95 @@ class markerdetail: UIViewController {
         tvtittle.text = marker1.title
         
       
+        loadremarkfirebase()
     }
+    
+    func loadremarkfirebase(){
+        
+      remarklist = []
+     
+        let referencephotomarkerinitial = FIRDatabase.database().reference().child("remarkelement").child(marker1.title!)
+    referencephotomarkerinitial.observe(.value, with: { (snapshot) in
+    
+    
+        
+    
+    for rest2 in snapshot.children.allObjects as! [FIRDataSnapshot] {//photo marker user name level
+    
+        
+         let remarkitem:remarkobject = remarkobject()
+        
+        for rest3 in rest2.children.allObjects as! [FIRDataSnapshot] {
+    
+          
+            
+            
+          
+            if(rest3.key == "remark"){
+                
+                remarkitem.remark = rest3.value as! String
+                
+            }
+            if(rest3.key == "datetime"){
+                
+                remarkitem.datetime = rest3.value as! String
+                
+            }
+            
+            if(rest3.key == "createdby"){
+                
+                remarkitem.createdby = rest3.value as! String
+                
+            }
+    
+         
+    
+    }
+      self.remarklist.append(remarkitem)
+    
+    }
+    
+    
+        DispatchQueue.main.async {
+            
+            
+            self.tableremark.reloadData()
+            let index = IndexPath(row: self.remarklist.count-1, section: 0)
+            self.tableremark.scrollToRow(at: index, at: .middle, animated: true)
+        }
+    
+    
+    }) { (nil) in
+    print("error firebase listner")
+    }
+    
+    
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return remarklist.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "remarkcell", for: indexPath) as? remarkcell
+        
+        let remark:String = remarklist[indexPath.item].remark
+        let createdby:String = remarklist[indexPath.item].createdby
+         let datetime:String = remarklist[indexPath.item].datetime
+        
+        cell?.remarklabel.text = remark
+        cell?.createdby.text = createdby
+        cell?.createddate.text = datetime
+        
+        cell?.layer.cornerRadius = 5
+        
+        return cell!
+    }
+    
+    
+
     
     func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
@@ -78,6 +172,9 @@ class markerdetail: UIViewController {
         
         }
     }
+    
+    
+    
 
     @IBAction func deletemarker(_ sender: Any) {
         
@@ -132,28 +229,38 @@ class markerdetail: UIViewController {
         
     }
     
-    @IBAction func copylatitude(_ sender: Any) {
+   
+    @IBAction func sendremark(_ sender: Any) {
         
-        let latitudestr:Double = marker1.position.latitude
-        let b:String = String(format:"%f", latitudestr)
-        UIPasteboard.general.string = b
-        displaycopied.text = "\(b) copied"
+        
+        var ref: FIRDatabaseReference!
+        ref = FIRDatabase.database().reference()
+        
+        let remark = inputremark.text
+        let createdby = FIRAuth.auth()?.currentUser?.email
+        
+        if(!remark!.isEmpty){
+        
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd-MM-yyyy HH:mm"
+        
+        let datestr = formatter.string(from: date)
+        
+        let data: [String:String] = [
+            "remark": remark!,
+            "createdby": createdby!,
+            "datetime": datestr,
+            ]
+        
+        ref.child("remarkelement").child(marker1.title!).childByAutoId().setValue(data)
+        
+        
+        inputremark.text = ""
+        }
         
     }
     
-    @IBAction func copylongitude(_ sender: Any) {
-        
-        
-          let longitudestr:Double = marker1.position.longitude
-        
-        let b:String = String(format:"%f", longitudestr)
-        UIPasteboard.general.string = b
-        
-        displaycopied.text = "\(b) copied"
-        
-     
-    }
-   
     @IBAction func gotowall(_ sender: Any) {
         
        if(marker1.title?.range(of:"ManHole_") != nil){
