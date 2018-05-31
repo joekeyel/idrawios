@@ -15,6 +15,7 @@ class remarkcell: UITableViewCell {
     @IBOutlet weak var createdby: UILabel!
     
     
+    @IBOutlet weak var imagepost: UIImageView!
     @IBOutlet weak var createddate: UILabel!
     @IBOutlet weak var remarklabel: UILabel!
     
