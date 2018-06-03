@@ -29,6 +29,7 @@
 		306DC34E1EF96F2500A5E082 /* register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 306DC34D1EF96F2500A5E082 /* register.swift */; };
 		307D0031200B8D7300E00C41 /* registercontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307D0030200B8D7300E00C41 /* registercontroller.swift */; };
 		3081469D2089CF67002D52C1 /* manholeextrainfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3081469C2089CF67002D52C1 /* manholeextrainfo.swift */; };
+		308F686720C3634400E6705D /* ScaleHeightImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308F686620C3634400E6705D /* ScaleHeightImageView.swift */; };
 		30981638200850C30020976B /* searchlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30981637200850C30020976B /* searchlist.swift */; };
 		3098163A20085E080020976B /* searchcell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098163920085E080020976B /* searchcell.swift */; };
 		3098163C2008688E0020976B /* markerobject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3098163B2008688E0020976B /* markerobject.swift */; };
@@ -104,6 +105,7 @@
 		306DC34D1EF96F2500A5E082 /* register.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = register.swift; sourceTree = "<group>"; };
 		307D0030200B8D7300E00C41 /* registercontroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = registercontroller.swift; sourceTree = "<group>"; };
 		3081469C2089CF67002D52C1 /* manholeextrainfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = manholeextrainfo.swift; sourceTree = "<group>"; };
+		308F686620C3634400E6705D /* ScaleHeightImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleHeightImageView.swift; sourceTree = "<group>"; };
 		30981637200850C30020976B /* searchlist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchlist.swift; sourceTree = "<group>"; };
 		3098163920085E080020976B /* searchcell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = searchcell.swift; sourceTree = "<group>"; };
 		3098163B2008688E0020976B /* markerobject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = markerobject.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 		305CB3D51E814677002732CB /* remoteios */ = {
 			isa = PBXGroup;
 			children = (
+				308F686620C3634400E6705D /* ScaleHeightImageView.swift */,
 				304CCA7520B25D540022C47F /* GoogleService-Info.plist */,
 				30E66AFB1F56963200808338 /* model */,
 				302876DC1F70B7A8008F69A6 /* cameraviewcontroller.swift */,
@@ -602,6 +605,7 @@
 				30A63AF31F160B2700AFDC4C /* BaseViewCell.swift in Sources */,
 				30E66AFD1F56966500808338 /* user.swift in Sources */,
 				30B0C005204E30520004A455 /* manholesummary.swift in Sources */,
+				308F686720C3634400E6705D /* ScaleHeightImageView.swift in Sources */,
 				30AF73E520BE26BA002487F1 /* remarkcell.swift in Sources */,
 				3098163A20085E080020976B /* searchcell.swift in Sources */,
 				30B2F2661F1860B700D6B7E2 /* cellmenu.swift in Sources */,

@@ -126,6 +126,8 @@ class cameraviewcontroller: UIViewController,UINavigationControllerDelegate,UIIm
         marker1.title = networkelement+"_"+imagename!
         
         var data = NSData()
+            
+        imagecapture.image = resizeImage(image: imagecapture.image!, newWidth: 800)
         data = UIImageJPEGRepresentation(imagecapture.image!, 0.1)! as NSData
         let metaData = FIRStorageMetadata()
         metaData.contentType = "image/jpg"
